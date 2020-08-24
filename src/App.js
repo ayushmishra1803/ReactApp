@@ -3,7 +3,6 @@ import Person from "./Person/Person";
 import "./App.css";
 import Radium from "radium";
 class App extends React.Component {
-	Style = {};
 	state = {
 		person: [
 			{ name: "Ayush Mishra", age: 20 },
@@ -17,6 +16,9 @@ class App extends React.Component {
 		color: "white",
 		padding: "16px",
 		margin: "16px",
+		":hover": {
+			backgroundColor: "blue",
+		},
 	};
 	ShowPerson = -null;
 	TogglePersonHandler = () => {
