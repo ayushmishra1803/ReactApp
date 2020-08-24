@@ -26,12 +26,11 @@ class App extends React.Component {
 	};
 
 	ChangePersonsHandler = (event, index) => {
-		const Persons = this.state.person;
-		console.log("Hello" + index);
-		Persons.name[index] = event.target.value;
-		//const name = event.target.value;
+		console.log(event.target.value + index);
+		const Person = this.state.person;
+		Person[index].name = event.target.value;
 		this.setState({
-			Person: Persons,
+			person: Person,
 		});
 	};
 	deletePersonHandler = (index) => {
@@ -52,7 +51,7 @@ class App extends React.Component {
 								name={re.name}
 								age={re.age}
 								key={index}
-								change={(event) => this.ChangePersonsHandler(index, event)}
+								change={(event) => this.ChangePersonsHandler(event, index)}
 								delete={this.deletePersonHandler.bind(this, index)}
 							/>
 						);
