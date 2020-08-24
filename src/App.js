@@ -1,7 +1,9 @@
 import React from "react";
 import Person from "./Person/Person";
 import "./App.css";
+import Radium from "radium";
 class App extends React.Component {
+	Style = {};
 	state = {
 		person: [
 			{ name: "Ayush Mishra", age: 20 },
@@ -72,4 +74,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default Radium(App);
