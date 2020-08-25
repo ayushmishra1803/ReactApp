@@ -1,7 +1,7 @@
 import React from "react";
-import Person from "../Components/Persons/Person/Person";
 import "./App.css";
 import Radium from "radium";
+import Persons from "../Components/Persons/Persons";
 class App extends React.Component {
 	state = {
 		person: [
@@ -49,17 +49,11 @@ class App extends React.Component {
 		if (this.state.Show === true) {
 			ShowPerson = (
 				<div>
-					{this.state.person.map((re, index) => {
-						return (
-							<Person
-								name={re.name}
-								age={re.age}
-								key={index}
-								change={(event) => this.ChangePersonsHandler(event, index)}
-								delete={this.deletePersonHandler.bind(this, index)}
-							/>
-						);
-					})}
+					<Persons
+						person={this.state.person}
+						changed={this.ChangePersonsHandler}
+						deleted={this.deletePersonHandler}
+					/>
 				</div>
 			);
 		}
