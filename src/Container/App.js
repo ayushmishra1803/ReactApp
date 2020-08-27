@@ -2,7 +2,17 @@ import React from "react";
 import "./App.css";
 import Radium from "radium";
 import Persons from "../Components/Persons/Persons";
+import Cockpit from "../Components/Cockpit/cockpit";
 class App extends React.Component {
+	constructor(props) {
+		super(props);
+		console.log("Constructor Called");
+	}
+
+	static getDerivedSateFromProps(props, state) {
+		console.log("Method getDerived from Props");
+	}
+
 	state = {
 		person: [
 			{ name: "Ayush Mishra", age: 20 },
@@ -45,6 +55,7 @@ class App extends React.Component {
 		});
 	};
 	render() {
+		console.log("Redner Called");
 		let ShowPerson = null;
 		if (this.state.Show === true) {
 			ShowPerson = (
@@ -59,14 +70,14 @@ class App extends React.Component {
 		}
 		return (
 			<div className="App">
-				<p>Hello React We Are Here Again</p>
-				<button style={this.Style} onClick={this.TogglePersonHandler}>
-					Show Person
-				</button>
+				<Cockpit Style={this.Style} TogglePerson={this.TogglePersonHandler} />
 
 				{ShowPerson}
 			</div>
 		);
+	}
+	componentDidMount() {
+		console.log("componentDidMount");
 	}
 }
 
